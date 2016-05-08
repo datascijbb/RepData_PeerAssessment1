@@ -25,7 +25,8 @@ Histogram of total number of steps taken each day
 
 ```r
 library(ggplot2)
-qplot(steps, data=total_steps_by_day, fill=I("blue"), col=I("black"), alpha=I(0.5), xlab="Total steps per day", main="Total steps per day")
+qplot(steps, data=total_steps_by_day, fill=I("blue"), col=I("black"), 
+      alpha=I(0.5), xlab="Total steps per day", main="Total steps per day")
 ```
 
 ![](PA1_template_files/figure-html/histogram-1.png)
@@ -105,7 +106,8 @@ imputed_total_steps_by_day <- imputed_steps_df %>% group_by(date) %>% summarize(
 Histogram of total number of steps taken each day from the *imputed* dataset
 
 ```r
-qplot(steps, data=imputed_total_steps_by_day, fill=I("blue"), col=I("black"), alpha=I(0.5), xlab="Total steps per day", main="Total steps per day")
+qplot(steps, data=imputed_total_steps_by_day, fill=I("blue"), col=I("black"),
+      alpha=I(0.5), xlab="Total steps per day", main="Total steps per day")
 ```
 
 ![](PA1_template_files/figure-html/imputedhistogram-1.png)
@@ -135,7 +137,8 @@ Add a new factor variable *dow* in the imputed dataset with two levels -- "weekd
 
 ```r
 imputed_steps_df <- imputed_steps_df %>% 
-    mutate(dow=factor(weekdays(date) %in% c("Saturday", "Sunday"), levels=c(FALSE, TRUE), labels=c("weekday", "weekend")))
+    mutate(dow=factor(weekdays(date) %in% c("Saturday", "Sunday"), 
+                      levels=c(FALSE, TRUE), labels=c("weekday", "weekend")))
 ```
 Calculate the average step taken in each 5-minute interval across all weekday days and weekend days.
 
